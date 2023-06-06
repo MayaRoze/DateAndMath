@@ -1,14 +1,19 @@
 public class MultiProduct extends Function {
-    private Function[] functions;
+    private Function[] factors; //the factors of the multi-product
 
-    public MultiProduct(Function... functions) {
-        this.functions = functions;
+    /**
+     * constructor
+     *
+     * @param factors the functions to be multiplied
+     */
+    public MultiProduct(Function... factors) {
+        this.factors = factors;
     }
 
     @Override
     public double valueAt(double x) {
         double product = 1.0;
-        for (Function function : functions) {
+        for (Function function : factors) {
             product *= function.valueAt(x);
         }
         return product;
@@ -16,25 +21,25 @@ public class MultiProduct extends Function {
 
     @Override
     public String toString() {
-        int functionsLen = functions.length;
+        int functionsLen = factors.length;
         String[] functionStrings = new String[functionsLen];
         for (int i = 0; i < functionsLen; i++)
-            functionStrings[i] = functions[i].toString();
+            functionStrings[i] = factors[i].toString();
         return String.format("(%s)", String.join(" * ", functionStrings));
     }
 
     @Override
     public MultiSum derivative() {
-        int functionsLen = functions.length;
+        int functionsLen = factors.length;
         int productIndex = 1;
         Function[] product = new Function[functionsLen];
         MultiProduct[] derivatives = new MultiProduct[functionsLen];
         for (int i = 0; i < functionsLen; i++) {
             for (int j = 0; j < functionsLen; j++) {
                 if (i == j) {
-                    product[0] = functions[j].derivative();
+                    product[0] = factors[j].derivative();
                 } else {
-                    product[productIndex] = functions[j];
+                    product[productIndex] = factors[j];
                     productIndex++;
                 }
             }

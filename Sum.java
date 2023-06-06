@@ -1,24 +1,25 @@
 public class Sum extends Function {
-    private Function function1;
-    private Function function2;
+    private Function addend1; //the first addend of the sum
+    private Function addend2; //the second addend of the sum
 
-    public Sum(Function function1, Function function2) {
-        this.function1 = function1;
-        this.function2 = function2;
+    /*constructor*/
+    public Sum(Function addend1, Function addend2) {
+        this.addend1 = addend1;
+        this.addend2 = addend2;
     }
 
     @Override
     public double valueAt(double x) {
-        return function1.valueAt(x) + function2.valueAt(x);
+        return addend1.valueAt(x) + addend2.valueAt(x);
     }
 
     @Override
     public String toString() {
-        return String.format("(%s + %s)", function1.toString(), function2.toString());
+        return String.format("(%s + %s)", addend1.toString(), addend2.toString());
     }
 
     @Override
     public Sum derivative() {
-        return new Sum(function1.derivative(), function2.derivative());
+        return new Sum(addend1.derivative(), addend2.derivative());
     }
 }

@@ -1,24 +1,30 @@
 public class Difference extends Function {
-    private Function function1;
-    private Function function2;
+    private Function minuend; //the first part of the difference
+    private Function subtrahend; //the second part of the difference
 
-    public Difference(Function function1, Function function2) {
-        this.function1 = function1;
-        this.function2 = function2;
+    /**
+     * constructor
+     *
+     * @param minuend    the first part of the difference
+     * @param subtrahend the second part of the difference
+     */
+    public Difference(Function minuend, Function subtrahend) {
+        this.minuend = minuend;
+        this.subtrahend = subtrahend;
     }
 
     @Override
     public double valueAt(double x) {
-        return function1.valueAt(x) - function2.valueAt(x);
+        return minuend.valueAt(x) - subtrahend.valueAt(x);
     }
 
     @Override
     public String toString() {
-        return String.format("(%s - %s)", function1.toString(), function2.toString());
+        return String.format("(%s - %s)", minuend.toString(), subtrahend.toString());
     }
 
     @Override
     public Difference derivative() {
-        return new Difference(function1.derivative(), function2.derivative());
+        return new Difference(minuend.derivative(), subtrahend.derivative());
     }
 }

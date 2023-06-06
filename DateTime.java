@@ -1,17 +1,29 @@
 public class DateTime extends Date {
-    protected int hour;
-    protected int minute;
+    protected int hour; // the hour of the time of day
+    protected int minute;  // the minutes of the time of day
 
+    /**
+     * constructor, if an element of the date is illegal it is defaulted to the
+     * smallest non-negative value that element can be
+     *
+     * @param year   the year of the date
+     * @param month  the month of the date
+     * @param day    the day of the date
+     * @param hour   the hour of the date
+     * @param minute the minute of the date
+     */
     public DateTime(int year, int month, int day, int hour, int minute) {
         super(year, month, day);
         this.hour = (hour >= 0 && hour <= 23) ? hour : 0;
         this.minute = (minute >= 0 && minute <= 59) ? minute : 0;
     }
 
+    /*setter for the hour of the date, if illegal input then defaulted*/
     public void setHour(int hour) {
         this.hour = (hour >= 0 && hour <= 23) ? hour : 0;
     }
 
+    /*setter for the minute of the date, if illegal input then defaulted*/
     public void setMinute(int minute) {
         this.minute = (minute >= 0 && minute <= 59) ? minute : 0;
     }

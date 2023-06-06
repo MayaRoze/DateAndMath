@@ -1,12 +1,19 @@
 import java.lang.Math;
 
 public class Polynomial extends Function {
-    protected final double[] coefficients;
+    private final double[] coefficients; //the coefficients of the polynomial
 
+    /*constructor*/
     public Polynomial(double... varargs) {
         this.coefficients = varargs;
     }
 
+    /*true if the num is a whole number, false otherwise*/
+    private boolean checkIfInt(double num) {
+        return num == (int) num;
+    }
+
+    @Override
     public double valueAt(double x) {
         double out = 0;
         for (int i = 0; i < coefficients.length; i++) {
@@ -23,10 +30,6 @@ public class Polynomial extends Function {
         }
         newCoefficients[newCoefficients.length - 1] = 0;
         return new Polynomial(newCoefficients);
-    }
-
-    private boolean checkIfInt(double num) {
-        return num == (int) num;
     }
 
     @Override

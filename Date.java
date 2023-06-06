@@ -1,22 +1,32 @@
 public class Date {
-    protected int year;
-    protected int month;
-    protected int day;
+    protected int year; // the year of the date
+    protected int month; //the month of the date
+    protected int day; // the day of the date
 
+    /**
+     * constructor, if an element of the date is illegal it is defaulted to the
+     * smallest non-negative value that element can be
+     * @param year the year of the date
+     * @param month the month of the date
+     * @param day the day of the date
+     */
     public Date(int year, int month, int day) {
         this.year = (year >= -3999 && year <= 3999) ? year : 0;
         this.month = (month >= 1 && month <= 12) ? month : 1;
         this.day = (day >= 1 && day <= 31) ? day : 1;
     }
 
+    /*setter for the year of the date, if illegal input then defaulted*/
     public void setYear(int year) {
         this.year = (year >= -3999 && year <= 3999) ? year : 0;
     }
 
+    /*setter for the month of the date, if illegal input then defaulted*/
     public void setMonth(int month) {
         this.month = (month >= 1 && month <= 12) ? month : 1;
     }
 
+    /*setter for the day of the date, if illegal input then defaulted*/
     public void setDay(int day) {
         this.day = (day >= 1 && day <= 31) ? day : 1;
     }

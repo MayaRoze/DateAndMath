@@ -1,6 +1,7 @@
 public class Negation extends Function {
-    private Function function;
+    private Function function; //the function to be negated
 
+    /*constructor*/
     public Negation(Function function) {
         this.function = function;
     }

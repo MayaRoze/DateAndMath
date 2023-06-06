@@ -1,6 +1,11 @@
 public class Constant extends Function {
-    private final double value;
+    private final double value; //the value of the constant
 
+    /**
+     * constructor
+     *
+     * @param value the value of the constant
+     */
     public Constant(double value) {
         this.value = value;
     }
@@ -10,6 +15,7 @@ public class Constant extends Function {
         return value;
     }
 
+    /*true if num is a whole number, else otherwise*/
     private boolean checkIfInt(double num) {
         return num == (int) num;
     }

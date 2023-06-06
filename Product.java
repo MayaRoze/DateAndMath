@@ -1,25 +1,26 @@
 public class Product extends Function {
-    protected Function function1;
-    protected Function function2;
+    private Function factor1; //the first factor of the product
+    private Function factor2; //the second factor of the product
 
-    public Product(Function function1, Function function2) {
-        this.function1 = function1;
-        this.function2 = function2;
+    /*constructor*/
+    public Product(Function factor1, Function factor2) {
+        this.factor1 = factor1;
+        this.factor2 = factor2;
     }
 
     @Override
     public double valueAt(double x) {
-        return function1.valueAt(x) * function2.valueAt(x);
+        return factor1.valueAt(x) * factor2.valueAt(x);
     }
 
     @Override
     public String toString() {
-        return String.format("(%s * %s)", function1.toString(), function2.toString());
+        return String.format("(%s * %s)", factor1.toString(), factor2.toString());
     }
 
     @Override
     public Function derivative() {
-        return new Sum(new Product(function1.derivative(), function2),
-                new Product(function2.derivative(), function1));
+        return new Sum(new Product(factor1.derivative(), factor2),
+                new Product(factor2.derivative(), factor1));
     }
 }
