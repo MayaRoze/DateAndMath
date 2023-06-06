@@ -26,13 +26,20 @@ public class MultiProduct extends Function {
     @Override
     public MultiSum derivative() {
         int functionsLen = functions.length;
+        int productIndex = 1;
         Function[] product = new Function[functionsLen];
         MultiProduct[] derivatives = new MultiProduct[functionsLen];
         for (int i = 0; i < functionsLen; i++) {
             for (int j = 0; j < functionsLen; j++) {
-                product[j] = (i == j) ? functions[j].derivative() : functions[j];
+                if (i == j) {
+                    product[0] = functions[j].derivative();
+                } else {
+                    product[productIndex] = functions[j];
+                    productIndex++;
+                }
             }
-            derivatives[i] = new MultiProduct(product);
+            productIndex = 1;
+            derivatives[i] = new MultiProduct(product.clone());
         }
         return new MultiSum(derivatives);
     }

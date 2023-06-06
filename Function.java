@@ -2,6 +2,7 @@ import java.lang.Math;
 
 public abstract class Function {
     public static final double DEFAULT_EPSILON = Math.pow(10, -5);
+    private double mid;
 
     public abstract double valueAt(double x);
 
@@ -14,7 +15,7 @@ public abstract class Function {
         double left = a, right = b;
         while (right - left > epsilon) {
             double mid = (left + right) / 2;
-            if (valueAt(left) * valueAt(right) > 0) left = mid;
+            if (valueAt(left) * valueAt(mid) > 0) left = mid;
             else right = mid;
         }
         return (left + right) / 2;
@@ -27,7 +28,7 @@ public abstract class Function {
     public double newtonRaphsonMethod(double a, double epsilon) {
         double x = a;
         Function quotient = new Quotient(this, this.derivative());
-        while (Math.abs(valueAt(x)) < epsilon) {
+        while (Math.abs(valueAt(x)) >= epsilon) {
             x = x - quotient.valueAt(x);
         }
         return x;
@@ -42,13 +43,12 @@ public abstract class Function {
         double[] coefficients = new double[n + 1];
         coefficients[0] = valueAt(0);
         double factorial = 1.0;
-        currFunction = derivative();
-        for (int i = 1; i < n; i++) {
+        currFunction = currFunction.derivative();
+        for (int i = 1; i < n + 1; i++) {
             factorial *= i;
-            double coefficient = 1 / factorial;
-            coefficient *= currFunction.valueAt(0);
+            double coefficient = currFunction.valueAt(0) / factorial;
             coefficients[i] = coefficient;
-            currFunction = derivative();
+            currFunction = currFunction.derivative();
         }
         return new Polynomial(coefficients);
     }

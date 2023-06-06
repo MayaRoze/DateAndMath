@@ -17,7 +17,7 @@ public class Constant extends Function {
     @Override
     public String toString() {
         if (checkIfInt(value)) return String.format("(%d)", (int) value);
-        return String.format("(%f)", value);
+        return "(" + value + ")";
     }
 
     @Override

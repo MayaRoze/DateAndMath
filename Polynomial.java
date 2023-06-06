@@ -54,6 +54,6 @@ public class Polynomial extends Function {
                     s += (s.equals("")) ? coefficient + stringX : " - " + (-1 * coefficient) + stringX;
             }
         }
-        return String.format("(%s)", s);
+        return (s.equals("")) ? "(0)" : String.format("(%s)", s);
     }
 }
