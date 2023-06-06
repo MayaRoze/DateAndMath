@@ -6,7 +6,15 @@ public class MultiProduct extends Function {
      *
      * @param factors the functions to be multiplied
      */
-    public MultiProduct(Function... factors) {
+    public MultiProduct(Function factor1, Function factor2 , Function... factors) {
+        this.factors = new Function[factors.length + 2];
+        this.factors[0] = factor1;
+        this.factors[1] = factor2;
+        for (int i = 0; i < factors.length; i++) this.factors[i+2] = factors[i];
+    }
+
+    /*a private constructor which gets the array of factors without checking if the array contains at least 2 factors*/
+    private MultiProduct(Function[] factors){
         this.factors = factors;
     }
 
@@ -34,6 +42,7 @@ public class MultiProduct extends Function {
         int productIndex = 1;
         Function[] product = new Function[functionsLen];
         MultiProduct[] derivatives = new MultiProduct[functionsLen];
+        MultiProduct[] restOfDerivatives = new MultiProduct[functionsLen-2];
         for (int i = 0; i < functionsLen; i++) {
             for (int j = 0; j < functionsLen; j++) {
                 if (i == j) {
@@ -46,6 +55,7 @@ public class MultiProduct extends Function {
             productIndex = 1;
             derivatives[i] = new MultiProduct(product.clone());
         }
-        return new MultiSum(derivatives);
+        for (int i = 0; i < functionsLen - 2; i++) restOfDerivatives[i] = derivatives[i+2];
+        return new MultiSum(derivatives[0], derivatives[1], restOfDerivatives);
     }
 }

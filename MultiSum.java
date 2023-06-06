@@ -6,9 +6,18 @@ public class MultiSum extends Function {
      *
      * @param addends the functions to be summed
      */
-    public MultiSum(Function... addends) { //TODO: might need to overload constructor
+    public MultiSum(Function addend1, Function addend2 , Function... addends) {
+        this.addends = new Function[addends.length + 2];
+        this.addends[0] = addend1;
+        this.addends[1] = addend2;
+        for (int i = 0; i < addends.length; i++) this.addends[i+2] = addends[i];
+    }
+
+    /*a private constructor which gets the array of factors without checking if the array contains at least 2 factors*/
+    private MultiSum(Function[] addends){
         this.addends = addends;
     }
+
 
     @Override
     public double valueAt(double x) {
