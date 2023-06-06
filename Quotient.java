@@ -1,8 +1,10 @@
 public class Quotient extends Function {
-    private Function numerator; //the numerator of the quotient
-    private Function denominator;//the denominator of the quotient
+    /**the numerator of the quotient*/
+    private Function numerator;
+    /**the denominator of the quotient*/
+    private Function denominator;
 
-    /*constructor*/
+    /**constructor*/
     public Quotient(Function numerator, Function denominator) {
         this.numerator = numerator;
         this.denominator = denominator;

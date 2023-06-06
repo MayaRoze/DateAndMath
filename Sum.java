@@ -1,8 +1,10 @@
 public class Sum extends Function {
-    private Function addend1; //the first addend of the sum
-    private Function addend2; //the second addend of the sum
+    /**the first addend of the sum*/
+    private Function addend1;
+    /**the second addend of the sum*/
+    private Function addend2;
 
-    /*constructor*/
+    /**constructor*/
     public Sum(Function addend1, Function addend2) {
         this.addend1 = addend1;
         this.addend2 = addend2;

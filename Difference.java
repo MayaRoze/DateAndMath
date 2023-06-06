@@ -1,6 +1,8 @@
 public class Difference extends Function {
-    private Function minuend; //the first part of the difference
-    private Function subtrahend; //the second part of the difference
+    /**the first part of the difference*/
+    private Function minuend;
+    /**the second part of the difference*/
+    private Function subtrahend;
 
     /**
      * constructor

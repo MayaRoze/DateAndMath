@@ -1,5 +1,6 @@
 public class MultiSum extends Function {
-    private Function[] addends; //the addends of the multi-sum
+    /**the addends of the multi-sum*/
+    private Function[] addends;
 
     /**
      * constructor
@@ -13,7 +14,7 @@ public class MultiSum extends Function {
         for (int i = 0; i < addends.length; i++) this.addends[i+2] = addends[i];
     }
 
-    /*a private constructor which gets the array of factors without checking if the array contains at least 2 factors*/
+    /**a private constructor which gets the array of factors without checking if the array contains at least 2 factors*/
     private MultiSum(Function[] addends){
         this.addends = addends;
     }

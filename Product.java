@@ -1,8 +1,10 @@
 public class Product extends Function {
-    private Function factor1; //the first factor of the product
-    private Function factor2; //the second factor of the product
+    /**the first factor of the product*/
+    private Function factor1;
+    /**the second factor of the product*/
+    private Function factor2;
 
-    /*constructor*/
+    /**constructor*/
     public Product(Function factor1, Function factor2) {
         this.factor1 = factor1;
         this.factor2 = factor2;

@@ -1,7 +1,10 @@
 public class Date {
-    protected int year; // the year of the date
-    protected int month; //the month of the date
-    protected int day; // the day of the date
+    /**the year of the date*/
+    protected int year;
+    /** the month of the date*/
+    protected int month;
+    /**the day of the date*/
+    protected int day;
 
     /**
      * constructor, if an element of the date is illegal it is defaulted to the
@@ -16,17 +19,17 @@ public class Date {
         this.day = (day >= 1 && day <= 31) ? day : 1;
     }
 
-    /*setter for the year of the date, if illegal input then defaulted*/
+    /**setter for the year of the date, if illegal input then defaulted*/
     public void setYear(int year) {
         this.year = (year >= -3999 && year <= 3999) ? year : 0;
     }
 
-    /*setter for the month of the date, if illegal input then defaulted*/
+    /**setter for the month of the date, if illegal input then defaulted*/
     public void setMonth(int month) {
         this.month = (month >= 1 && month <= 12) ? month : 1;
     }
 
-    /*setter for the day of the date, if illegal input then defaulted*/
+    /**setter for the day of the date, if illegal input then defaulted*/
     public void setDay(int day) {
         this.day = (day >= 1 && day <= 31) ? day : 1;
     }

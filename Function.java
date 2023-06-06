@@ -1,15 +1,16 @@
 import java.lang.Math;
 
 public abstract class Function {
-    public static final double DEFAULT_EPSILON = Math.pow(10, -5); //the default error for roots
+    /** the default error for roots*/
+    public static final double DEFAULT_EPSILON = Math.pow(10, -5);
 
-    /*returns the value of the function at point x*/
+    /**returns the value of the function at point x*/
     public abstract double valueAt(double x);
 
     @Override
     public abstract String toString();
 
-    /*returns the derivative function of this function*/
+    /**returns the derivative function of this function*/
     public abstract Function derivative();
 
     /**

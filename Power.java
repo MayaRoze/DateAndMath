@@ -1,8 +1,10 @@
 public class Power extends Function {
-    private Function base; //the base of the power
-    private int exponent; //the exponent of the number (whole positive number)
+    /**the base of the power*/
+    private Function base;
+    /**the exponent of the number (whole positive number)*/
+    private int exponent;
 
-    /*constructor*/
+    /**constructor*/
     public Power(Function base, int exponent) {
         this.base = base;
         this.exponent = exponent;

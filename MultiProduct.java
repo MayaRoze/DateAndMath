@@ -1,5 +1,6 @@
 public class MultiProduct extends Function {
-    private Function[] factors; //the factors of the multi-product
+    /**the factors of the multi-product*/
+    private Function[] factors;
 
     /**
      * constructor
@@ -13,7 +14,7 @@ public class MultiProduct extends Function {
         for (int i = 0; i < factors.length; i++) this.factors[i+2] = factors[i];
     }
 
-    /*a private constructor which gets the array of factors without checking if the array contains at least 2 factors*/
+    /**a private constructor which gets the array of factors without checking if the array contains at least 2 factors*/
     private MultiProduct(Function[] factors){
         this.factors = factors;
     }

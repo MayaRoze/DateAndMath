@@ -1,14 +1,15 @@
 import java.lang.Math;
 
 public class Polynomial extends Function {
-    private final double[] coefficients; //the coefficients of the polynomial
+    /**the coefficients of the polynomial*/
+    private final double[] coefficients;
 
-    /*constructor*/
+    /**constructor*/
     public Polynomial(double... varargs) {
         this.coefficients = varargs;
     }
 
-    /*true if the num is a whole number, false otherwise*/
+    /**true if the num is a whole number, false otherwise*/
     private boolean checkIfInt(double num) {
         return num == (int) num;
     }

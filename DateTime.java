@@ -1,6 +1,8 @@
 public class DateTime extends Date {
-    protected int hour; // the hour of the time of day
-    protected int minute;  // the minutes of the time of day
+    /**the hour of the time of day*/
+    protected int hour;
+    /**the minutes of the time of day*/
+    protected int minute;
 
     /**
      * constructor, if an element of the date is illegal it is defaulted to the
@@ -18,12 +20,12 @@ public class DateTime extends Date {
         this.minute = (minute >= 0 && minute <= 59) ? minute : 0;
     }
 
-    /*setter for the hour of the date, if illegal input then defaulted*/
+    /**setter for the hour of the date, if illegal input then defaulted*/
     public void setHour(int hour) {
         this.hour = (hour >= 0 && hour <= 23) ? hour : 0;
     }
 
-    /*setter for the minute of the date, if illegal input then defaulted*/
+    /**setter for the minute of the date, if illegal input then defaulted*/
     public void setMinute(int minute) {
         this.minute = (minute >= 0 && minute <= 59) ? minute : 0;
     }
